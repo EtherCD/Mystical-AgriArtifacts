@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
 @SuppressWarnings({"unused", "super"})
 public class ModRecipes {
     public static void register() {
-        if (ModConfig.integrationMAg && ModChecker.INSANIUM) {
+        if (ModConfig.integrationMysticalAgradditions && ModChecker.INSANIUM) {
             RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.INSANIUM_THEORETICAL_WATER.getItem(), 1, 0), "NTN", "TTT", "NTN", 'N', ModParts.itemInsaniumNugget, 'T', ModParts.itemTheoreticalWater);
             RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.INSANIUM_FERT_CORE.getItem(), 1, 0), "ETE", "FSF", "EFE", 'F', ModParts.itemFertilizedEssence, 'E', ModParts.itemInsaniumEssence, 'S', ModParts.itemSupremiumFertCore, 'T', Blocks.DRAGON_EGG);
             RecipeHelper.addShapedRecipe(new ItemStack(ModItems.itemInstaiumWateringCan, 1, 0), "IF ", "ITI", " I ", 'I', ModParts.itemInsaniumIngot, 'T', ItemCrafting.INSANIUM_FERT_CORE.getItem(), 'F', ItemCrafting.INSANIUM_THEORETICAL_WATER.getItem());
@@ -51,7 +51,7 @@ public class ModRecipes {
         RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.TIER_4_ELECTRONIC_SEEDS.getItem(), 1, 0), "XYX", "YPY", "XYX", 'X', ModParts.itemTier4Essence, 'Y', ModParts.itemTier4Ingot, 'P', ItemCrafting.TIER_3_ELECTRONIC_SEEDS.getItem());
         RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.TIER_5_ELECTRONIC_SEEDS.getItem(), 1, 0), "XYX", "YPY", "XYX", 'X', ModParts.itemTier5Essence, 'Y', ModParts.itemTier5Ingot, 'P', ItemCrafting.TIER_4_ELECTRONIC_SEEDS.getItem());
 
-        if (ModConfig.integrationMAg && ModChecker.INSANIUM) {
+        if (ModConfig.integrationMysticalAgradditions && ModChecker.INSANIUM) {
             RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.TIER_6_ALLOY_SEEDS.getItem(), 1, 0), "XYX", "YPY", "XYX", 'X', ModParts.itemInsaniumEssence, 'Y', ModParts.itemInsaniumIngot, 'P', ItemCrafting.TIER_5_ALLOY_SEEDS.getItem());
             RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.TIER_6_NUCLEAR_SEEDS.getItem(), 1, 0), "XYX", "YPY", "XYX", 'X', ModParts.itemInsaniumEssence, 'Y', ModParts.itemInsaniumIngot, 'P', ItemCrafting.TIER_5_NUCLEAR_SEEDS.getItem());
             RecipeHelper.addShapedRecipe(new ItemStack(ItemCrafting.TIER_6_ELECTRONIC_SEEDS.getItem(), 1, 0), "XYX", "YPY", "XYX", 'X', ModParts.itemInsaniumEssence, 'Y', ModParts.itemInsaniumIngot, 'P', ItemCrafting.TIER_5_ELECTRONIC_SEEDS.getItem());
@@ -64,7 +64,7 @@ public class ModRecipes {
         RecipeHelper.addShapedRecipe(new ItemStack(BlockGrowthAccelerator.TIER3.getBlock(), 1, 0), "PGP", "GAG", "PGP", 'P', ModParts.blockEssenceTier3, 'G', Items.DIAMOND, 'A', BlockGrowthAccelerator.TIER2.getBlock());
         RecipeHelper.addShapedRecipe(new ItemStack(BlockGrowthAccelerator.TIER4.getBlock(), 1, 0), "PGP", "GAG", "PGP", 'P', ModParts.blockEssenceTier4, 'G', Blocks.DIAMOND_BLOCK, 'A', BlockGrowthAccelerator.TIER3.getBlock());
         RecipeHelper.addShapedRecipe(new ItemStack(BlockGrowthAccelerator.TIER5.getBlock(), 1, 0), "PBP", "GAG", "PBP", 'P', ModParts.blockEssenceTier5, 'B', Blocks.DIAMOND_BLOCK, 'G', Items.NETHER_STAR, 'A', BlockGrowthAccelerator.TIER4.getBlock());
-        if (ModConfig.integrationMAg && ModChecker.INSANIUM)
+        if (ModConfig.integrationMysticalAgradditions && ModChecker.INSANIUM)
             RecipeHelper.addShapedRecipe(new ItemStack(BlockGrowthAccelerator.TIER6.getBlock(), 1, 0), "PGP", "BAB", "PGP", 'P', ModParts.blockEssenceTier6, 'B', Blocks.DRAGON_EGG, 'G', Items.NETHER_STAR, 'A', BlockGrowthAccelerator.TIER5.getBlock());
     }
 
@@ -95,11 +95,11 @@ public class ModRecipes {
         private final String[] shape;
 
         ShapeEssenceRecipe(String top, String center, String bottom) {
-            this.shape = new String[] {top,center,bottom};
+            shape = new String[] {top,center,bottom};
         }
 
         public String[] getShape() {
-            return this.shape;
+            return shape;
         }
     }
 }

@@ -26,7 +26,7 @@ public abstract class TileEntityUtil extends TileEntity {
     @Override
     public SPacketUpdateTileEntity getUpdatePacket(){
         NBTTagCompound tag = new NBTTagCompound();
-        this.writeCustomNBT(tag);
+        writeCustomNBT(tag);
         return new SPacketUpdateTileEntity(pos, -1, tag);
     }
 

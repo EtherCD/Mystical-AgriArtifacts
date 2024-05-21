@@ -34,14 +34,22 @@ public class ModBlocks {
     public static void register() {
         ModRegistry registry = MysticalAgriexpansion.REGISTRY;
 
-        if (ModConfig.growthAcceleratorActive)
+        if (ModConfig.growthAcceleratorsActive)
             BlockGrowthAccelerator.init();
-        registry.register(blockInferniumMutagenesisProcessor, "inferium_mutagenesis_processor");
-        registry.register(blockPrudentiumMutagenesisProcessor, "prudentium_mutagenesis_processor");
-        registry.register(blockIntermediumMutagenesisProcessor, "intermedium_mutagenesis_processor");
-        registry.register(blockSuperiumMutagenesisProcessor, "superium_mutagenesis_processor");
-        registry.register(blockSupremiumMutagenesisProcessor, "supremium_mutagenesis_processor");
-        if (ModConfig.integrationMAg && ModChecker.INSANIUM) registry.register(blockInsaniumMutagenesisProcessor, "insanium_mutagenesis_processor");
+        if (ModConfig.mutagenesisProcessors) {
+            if (ModConfig.mutagenesisProcessorTier1)
+                registry.register(blockInferniumMutagenesisProcessor, "inferium_mutagenesis_processor");
+            if (ModConfig.mutagenesisProcessorTier2)
+                registry.register(blockPrudentiumMutagenesisProcessor, "prudentium_mutagenesis_processor");
+            if (ModConfig.mutagenesisProcessorTier3)
+                registry.register(blockIntermediumMutagenesisProcessor, "intermedium_mutagenesis_processor");
+            if (ModConfig.mutagenesisProcessorTier4)
+                registry.register(blockSuperiumMutagenesisProcessor, "superium_mutagenesis_processor");
+            if (ModConfig.mutagenesisProcessorTier5)
+                registry.register(blockSupremiumMutagenesisProcessor, "supremium_mutagenesis_processor");
+            if (ModConfig.integrationMysticalAgradditions && ModConfig.mutagenesisProcessorTier6 && ModChecker.INSANIUM)
+                registry.register(blockInsaniumMutagenesisProcessor, "insanium_mutagenesis_processor");
+        }
 
         for (RegisteredObject<Block> elem : BLOCKS) {
             registry.register(elem.getObject(), elem.getName(), true);

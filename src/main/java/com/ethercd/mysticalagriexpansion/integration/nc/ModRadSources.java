@@ -6,8 +6,8 @@ import nc.radiation.RadSources;
 
 public class ModRadSources {
     public static void addNuclearCrop(double radiation, NuclearCrop nc) {
-        RadSources.put(radiation / 4D, nc.getPlant());
-        RadSources.put(radiation / 4D, nc.getSeed());
+        RadSources.put(radiation / 9D, nc.getPlant());
+        RadSources.put(radiation / 9D, nc.getSeed());
         RadSources.put(radiation / 9D, nc.getCrop());
     }
 
@@ -15,8 +15,8 @@ public class ModRadSources {
         try {
             addNuclearCrop(RadSources.URANIUM_235, NuclearCrops.cropUranium235);
             addNuclearCrop(RadSources.URANIUM_233, NuclearCrops.cropUranium233);
-            addNuclearCrop(RadSources.THORIUM_230, NuclearCrops.cropThorium230);
-            addNuclearCrop(RadSources.THORIUM_232, NuclearCrops.cropThorium232);
+//            addNuclearCrop(RadSources.THORIUM, NuclearCrops.cropThorium230);
+//            addNuclearCrop(RadSources.THORIUM_232, NuclearCrops.cropThorium232);
             addNuclearCrop(RadSources.PLUTONIUM_238, NuclearCrops.cropPlutonium238);
             addNuclearCrop(RadSources.PLUTONIUM_239, NuclearCrops.cropPlutonium239);
             addNuclearCrop(RadSources.PLUTONIUM_241, NuclearCrops.cropPlutonium241);

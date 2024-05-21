@@ -36,11 +36,11 @@ public enum ModMetaPart {
     }
 
     public Item getItem() {
-        return this.item;
+        return item;
     }
 
     public boolean isLoaded() {
-        return this.loaded;
+        return loaded;
     }
 
     public static void init() {
@@ -50,10 +50,10 @@ public enum ModMetaPart {
     }
 
     public void load() {
-        if (this.active) {
+        if (active) {
             try {
-                this.item = Parts.getItem(name);
-                this.loaded = true;
+                item = Parts.getItem(name);
+                loaded = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }

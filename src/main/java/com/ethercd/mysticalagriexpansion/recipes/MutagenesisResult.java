@@ -5,9 +5,9 @@ import net.minecraft.item.ItemStack;
 import java.util.Random;
 
 public class MutagenesisResult {
-    private ItemStack item;
-    private int chance;
-    private Random random;
+    private final ItemStack item;
+    private final int chance;
+    private final Random random;
 
     public MutagenesisResult(ItemStack item, int chance) {
         this.item = item;
@@ -16,11 +16,11 @@ public class MutagenesisResult {
     }
 
     public boolean getSuccess(float chanceMultiplier) {
-        return this.random.nextInt(100) < 100 - Math.round(this.chance * chanceMultiplier);
+        return random.nextInt(100) < 100 - Math.round(chance * chanceMultiplier);
     }
 
     public int getChance() {
-        return this.chance;
+        return chance;
     }
 
     public ItemStack getItem() {

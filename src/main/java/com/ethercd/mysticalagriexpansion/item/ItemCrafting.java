@@ -5,8 +5,8 @@ import com.ethercd.mysticalagriexpansion.lib.ModChecker;
 
 @SuppressWarnings({"unused"})
 public enum ItemCrafting {
-    INSANIUM_THEORETICAL_WATER("insanium_theoretical_water", "", ModChecker.INSANIUM),
-    INSANIUM_FERT_CORE("insanium_fert_core", "", ModChecker.INSANIUM),
+    INSANIUM_THEORETICAL_WATER("insanium_theoretical_water", "", ModConfig.integrationMysticalAgradditions && ModChecker.INSANIUM),
+    INSANIUM_FERT_CORE("insanium_fert_core", "", ModConfig.integrationMysticalAgradditions &&  ModChecker.INSANIUM),
     EXEMPLARY_GEAR("exemplary_gear", "gearExemplary", true),
 
     ELECTRONIC_SEEDS("electronic_seeds", "seedsElectronic", true),
@@ -28,9 +28,9 @@ public enum ItemCrafting {
     TIER_5_ELECTRONIC_SEEDS("tier_5_electronic_seeds", "", true),
     TIER_5_NUCLEAR_SEEDS("tier_5_nuclear_seeds", "", true),
     TIER_5_ALLOY_SEEDS("tier_5_alloy_seeds", "", true),
-    TIER_6_ELECTRONIC_SEEDS("tier_6_electronic_seeds", "", ModConfig.integrationMAg && ModChecker.INSANIUM),
-    TIER_6_NUCLEAR_SEEDS("tier_6_nuclear_seeds", "", ModConfig.integrationMAg && ModChecker.INSANIUM),
-    TIER_6_ALLOY_SEEDS("tier_6_alloy_seeds", "", ModConfig.integrationMAg && ModChecker.INSANIUM),
+    TIER_6_ELECTRONIC_SEEDS("tier_6_electronic_seeds", "", ModConfig.integrationMysticalAgradditions && ModChecker.INSANIUM),
+    TIER_6_NUCLEAR_SEEDS("tier_6_nuclear_seeds", "", ModConfig.integrationMysticalAgradditions && ModChecker.INSANIUM),
+    TIER_6_ALLOY_SEEDS("tier_6_alloy_seeds", "", ModConfig.integrationMysticalAgradditions && ModChecker.INSANIUM),
 
     MUTAGENESIS_CORE("mutagenesis_core", "", true),
     ;
@@ -46,7 +46,7 @@ public enum ItemCrafting {
     }
 
     public ModItem getItem() {
-        return this.item;
+        return item;
     }
 
     public static void register() {

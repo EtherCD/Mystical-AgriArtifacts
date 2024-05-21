@@ -35,28 +35,28 @@ public class AlloyCrops {
     public static final List<AlloyCrop> ALLOY_CROP_LIST = new ArrayList<>();
 
     static {
-        cropTough               = new AlloyCrop("tough", 5, 1, 1, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropHardCarbon          = new AlloyCrop("hard_carbon", 5, 2, 2, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropMagnesiumDiboride   = new AlloyCrop("magnesium_diboride", 5, 3, 3, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropManganeseDioxide    = new AlloyCrop("manganese_dioxide", 5, 4, 4, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropHslaSteel           = new AlloyCrop("hsla_steel", 5, 5, 5, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropFerroboron          = new AlloyCrop("ferroboron", 5, 6, 6, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropShibuichi           = new AlloyCrop("shibuichi", 5, 7, 7, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropTinSilver           = new AlloyCrop("tin_silver", 5, 8, 8, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropExtreme             = new AlloyCrop("extreme", 5, 10, 10, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropThermoconducting    = new AlloyCrop("thermoconducting", 5, 11, 11, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropZircaloy            = new AlloyCrop("zircaloy", 5, 12, 12, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-        cropSiliconCarbide      = new AlloyCrop("silicon_carbide", 5, 13, 13, ModConfig.integrationNC && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
-//        cropAluminumBronze      = new AlloyCrop("aluminum_bronze", 5, 0, 0, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropTitaniumAluminide   = new AlloyCrop("titanium_aluminide", 5, 1, 1, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropRedBrass            = new AlloyCrop("red_brass", 5, 2, 2, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropMuntzMetal          = new AlloyCrop("muntz_metal", 5, 3, 3, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropNichrome            = new AlloyCrop("nichrome", 5, 4, 4, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropAlcald              = new AlloyCrop("alcald", 5, 5, 5, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropVanadiumAluminum    = new AlloyCrop("vanadium_aluminum", 5, 6, 6, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropVitallium           = new AlloyCrop("vitallium", 5, 7, 7, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropDuralumin           = new AlloyCrop("duralumin", 5, 8, 8, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
-//        cropFerromanganese      = new AlloyCrop("ferromanganese", 5, 9, 9, ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropTough               = new AlloyCrop("tough", 5, 1, 1, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropHardCarbon          = new AlloyCrop("hard_carbon", 5, 2, 2, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropMagnesiumDiboride   = new AlloyCrop("magnesium_diboride", 5, 3, 3, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropManganeseDioxide    = new AlloyCrop("manganese_dioxide", 5, 4, 4, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropHslaSteel           = new AlloyCrop("hsla_steel", 5, 5, 5, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropFerroboron          = new AlloyCrop("ferroboron", 5, 6, 6, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropShibuichi           = new AlloyCrop("shibuichi", 5, 7, 7, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropTinSilver           = new AlloyCrop("tin_silver", 5, 8, 8, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropExtreme             = new AlloyCrop("extreme", 5, 10, 10, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropThermoconducting    = new AlloyCrop("thermoconducting", 5, 11, 11, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropZircaloy            = new AlloyCrop("zircaloy", 5, 12, 12, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropSiliconCarbide      = new AlloyCrop("silicon_carbide", 5, 13, 13, ModConfig.integrationNuclearCraft && ModChecker.NUCLEAR_CRAFT, ModMetaPart.NC_ALLOY);
+        cropAluminumBronze      = new AlloyCrop("aluminum_bronze", 5, 0, 0, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropTitaniumAluminide   = new AlloyCrop("titanium_aluminide", 5, 1, 1, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropRedBrass            = new AlloyCrop("red_brass", 5, 2, 2, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropMuntzMetal          = new AlloyCrop("muntz_metal", 5, 3, 3, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropNichrome            = new AlloyCrop("nichrome", 5, 4, 4, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropAlcald              = new AlloyCrop("alcald", 5, 5, 5, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropVanadiumAluminum    = new AlloyCrop("vanadium_aluminum", 5, 6, 6, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropVitallium           = new AlloyCrop("vitallium", 5, 7, 7, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropDuralumin           = new AlloyCrop("duralumin", 5, 8, 8, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
+        cropFerromanganese      = new AlloyCrop("ferromanganese", 5, 9, 9, ModConfig.integrationIndustrialUpgrade && ModChecker.INDUSTRIAL_UPGRADE, ModMetaPart.IU_ALLOY);
     }
 
     public static void register() {

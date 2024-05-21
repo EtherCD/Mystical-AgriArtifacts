@@ -9,66 +9,51 @@ buildscript {
 }
         
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = 'beta'
-group = 'com.ethercd.mysticalagriexpansion' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = mod_version
+group = 'com.ethercd.mysticalagriexpansion'
 archivesBaseName = 'MysticalAgriexpansion'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    // The mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   Snapshot are built nightly.
-    // stable_#            Stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // Simply re-run your setup task after changing the mappings to update your workspace.
-    //mappings channel: 'snapshot', version: '20171003-1.12'
     mappings channel: 'snapshot', version: '20171003-1.12'
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
-    // Default run configurations.
-    // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
             workingDirectory project.file('run')
-
-            // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
         }
 
         server {
-
-            // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
         }
     }
 }
-//CC
 repositories {
+    maven {
+        name 'CurseMaven'
+        url 'https://www.cursemaven.com'
+    }
     maven {
         name 'IC2'
         url 'http://maven.ic2.player.to'
     }
     maven {
-        // location of the maven that hosts JEI files
-        name = "Progwml6 maven"
-        url = "http://dvs1.progwml6.com/files/maven"
+        name "BlakesMods"
+        url 'https://maven.blakesmods.com'
     }
     maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "modmaven.k-4u.nl"
+        name "Progwml6 maven"
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        name "ModMaven"
+        url "modmaven.k-4u.nl"
     }
     mavenCentral()
 }
@@ -76,59 +61,38 @@ repositories {
 dependencies {
     implementation 'org.testng:testng:7.1.0'
 
-    // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft "net.minecraftforge:forge:${mc_version}-${frg_version}"
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    // You may put jars on which you depend on in ./libs or you may define them like so..
-    // compile "some.group:artifact:version:classifier"
-    // compile "some.group:artifact:version
-    compile "mezz.jei:jei_${mc_version}:${jei_version}:api"
-    runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+    compile "mezz.jei:jei_${minecraft_version}:${jei_version}:api"
+    runtime "mezz.jei:jei_${minecraft_version}:${jei_version}"
 
-    compile files("./libs/MysticalAgriculture-1.12.2-1.7.5.jar")
-    compile files("./libs/Cucumber-1.12.2-1.1.3.jar")
-    compile files("./libs/NuclearCraft-2.18zzz-1.12.2.jar")
-//
-    // Real examples
-    // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    // compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+    compile "com.blakebr0.cucumber:Cucumber:${minecraft_version}-${cucumber_version}"
+    compile "com.blakebr0.mysticalagriculture:MysticalAgriculture:${minecraft_version}-${mystical_agriculture_version}"
+    compile "curse.maven:nuclearcraft-${nuclear_craft_project_id}:${nuclear_craft_file_id}"
 
-    // The 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    // provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // These dependencies get remapped to your current MCP mappings
-    // deobf 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // For more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+    if (include_industrial_upgrade)
+        runtime "curse.maven:industrial-upgrade-${industrial_upgrade_project_id}:${industrial_upgrade_file_id}"
+    if (!include_industrial_upgrade && include_industrial_craft_2)
+        runtime "curse.maven:industrial-craft-${industrial_craft_2_project_id}:${industrial_craft_2_file_id}"
 }
 
 sourceSets { main { output.resourcesDir = output.classesDir } }
 
-// Example for how to get properties into the manifest for reading by the runtime..
 jar {
     manifest {
         attributes([
             "Specification-Title": "Mystical Agriexpansion",
             "Specification-Vendor": "EtherCD",
-            "Specification-Version": "0.1", // We are version 1 of ourselves
+            "Specification-Version": mod_version,
             "Implementation-Title": project.name,
-            "Implementation-Version": "1.12.2",
+            "Implementation-Version": minecraft_version,
             "Implementation-Vendor" :"",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
 
-// Example configuration to allow publishing using the maven-publish task
-// This is the preferred method to reobfuscate your jar file
-jar.finalizedBy('reobfJar') 
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-//publish.dependsOn('reobfJar')
+jar.finalizedBy('reobfJar')
 
 publishing {
     publications {

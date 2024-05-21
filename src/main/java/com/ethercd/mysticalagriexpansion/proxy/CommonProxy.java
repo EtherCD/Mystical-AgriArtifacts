@@ -34,7 +34,7 @@ public class CommonProxy {
         ModTileEntities.init();
         ModParts.init();
         ModRecipes.register();
-        if (ModChecker.NUCLEAR_CRAFT)
+        if (ModChecker.NUCLEAR_CRAFT && ModConfig.integrationRadiationFromNuclearCraft)
             ModRadSources.init();
     }
 

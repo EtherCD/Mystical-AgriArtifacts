@@ -76,30 +76,22 @@ public class ModParts {
 
         ModMetaPart.init();
 
-        if (ModChecker.GERMANIUM) {
+        if (ModChecker.GERMANIUM)
             itemIUGermanium = getItemFromOre("ingotGermanium");
-        }
-        if (ModChecker.SPINEL) {
+        if (ModChecker.SPINEL)
             itemIUSpinel = getItemFromOre("ingotSpinel");
-        }
-        if (ModChecker.CHROMIUM) {
+        if (ModChecker.CHROMIUM)
             itemIUChromium = getItemFromOre("ingotChromium");
-        }
-        if (ModChecker.CARAVKY) {
+        if (ModChecker.CARAVKY)
             itemIUCaravky = getItemFromOre("ingotCaravky");
-        }
-        if (ModChecker.VANADIUM) {
+        if (ModChecker.VANADIUM)
             itemIUVanadium = getItemFromOre("ingotVanadium");
-        }
-        if (ModChecker.MICHALOV) {
+        if (ModChecker.MICHALOV)
             itemIUMichalov = getItemFromOre("ingotMichalovm");
-        }
-        if (ModChecker.BERYLLIUM) {
+        if (ModChecker.BERYLLIUM)
             itemBerylliumIngot = getItemFromOre("ingotBeryllium");
-        }
-        if (ModChecker.ZIRCONIUM) {
+        if (ModChecker.ZIRCONIUM)
             itemZirconiumIngot = getItemFromOre("ingotZirconium");
-        }
 
         blockEssenceTier2 = getItemFromOre("blockPrudentiumEssence");
         blockEssenceTier3 = getItemFromOre("blockIntermediumEssence");

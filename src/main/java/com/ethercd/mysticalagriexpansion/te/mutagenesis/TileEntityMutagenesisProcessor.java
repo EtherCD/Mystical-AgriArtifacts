@@ -46,16 +46,16 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
 
     @Override
     public void update() {
-        if (this.getWorld().isRemote)
+        if (getWorld().isRemote)
             return;
 
         boolean mark = false;
 
-        ItemStack input1 = this.getStackInSlot(0);
-        ItemStack input2 = this.getStackInSlot(1);
-        ItemStack output1 = this.getStackInSlot(2);
-        ItemStack output2 = this.getStackInSlot(3);
-        ItemStack output3 = this.getStackInSlot(4);
+        ItemStack input1 = getStackInSlot(0);
+        ItemStack input2 = getStackInSlot(1);
+        ItemStack output1 = getStackInSlot(2);
+        ItemStack output2 = getStackInSlot(3);
+        ItemStack output3 = getStackInSlot(4);
 
         if (!input1.isEmpty() && !input2.isEmpty()) {
             MutagenesisResult recipeOutput = MutagenesisRecipesManager.getResult(input1, input2);
@@ -64,40 +64,40 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
                     && (output1.isEmpty() || StackHelper.canCombineStacks(output1, recipeOutput.getItem()))
                     && (output2.isEmpty() || StackHelper.canCombineStacks(output2, copyItemStack(input1)))
                     && (output3.isEmpty() || StackHelper.canCombineStacks(output3, copyItemStack(input2)))) {
-                this.progress++;
-                if (this.progress >= this.getOperationTime()) {
+                progress++;
+                if (progress >= getOperationTime()) {
                     if (recipeOutput.getSuccess(getChanceMultiplier())) {
                         if (output1.isEmpty()) {
-                            this.setInventorySlotContents(2, recipeOutput.getItem().copy());
+                            setInventorySlotContents(2, recipeOutput.getItem().copy());
                         } else {
                             output1.grow(recipeOutput.getItem().getCount());
                         }
                     }
                     if (output2.isEmpty()) {
-                        this.setInventorySlotContents(3, copyItemStack(input1));
+                        setInventorySlotContents(3, copyItemStack(input1));
                     } else {
                         output2.grow(1);
                     }
                     if (output3.isEmpty()) {
-                        this.setInventorySlotContents(4, copyItemStack(input2));
+                        setInventorySlotContents(4, copyItemStack(input2));
                     } else {
                         output3.grow(1);
                     }
-                    this.decrStackSize(0, 1);
-                    this.decrStackSize(1, 1);
-                    this.progress = 0;
+                    decrStackSize(0, 1);
+                    decrStackSize(1, 1);
+                    progress = 0;
                 }
                 mark = true;
             }
         } else {
-            if (this.progress > 0) {
-                this.progress = 0;
+            if (progress > 0) {
+                progress = 0;
                 mark = true;
             }
         }
 
         if (mark) {
-            this.markDirty();
+            markDirty();
         }
     }
 
@@ -114,16 +114,16 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
 
     @Override
     public ItemStack getStackInSlot(int slot) {
-        return this.inventory.get(slot);
+        return inventory.get(slot);
     }
     @Override
     public ItemStack decrStackSize(int slot, int decrement) {
-        return ItemStackHelper.getAndSplit(this.inventory, slot, decrement);
+        return ItemStackHelper.getAndSplit(inventory, slot, decrement);
     }
 
     @Override
     public boolean isUsableByPlayer(EntityPlayer player) {
-        return this.world.getTileEntity(this.getPos()) == this && player.getDistanceSq(this.getPos().add(0.5D, 0.5D, 0.5D)) <= 64.0D;
+        return this.world.getTileEntity(getPos()) == this && player.getDistanceSq(getPos().add(0.5D, 0.5D, 0.5D)) <= 64.0D;
     }
 
     @Override
@@ -142,14 +142,14 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
     public void setInventorySlotContents(int index, ItemStack stack) {
         this.inventory.set(index, stack);
 
-        if (stack.getCount() > this.getInventoryStackLimit()) {
-            stack.setCount(this.getInventoryStackLimit());
+        if (stack.getCount() > getInventoryStackLimit()) {
+            stack.setCount(getInventoryStackLimit());
         }
     }
 
     @Override
     public ItemStack removeStackFromSlot(int index) {
-        return ItemStackHelper.getAndRemove(this.inventory, index);
+        return ItemStackHelper.getAndRemove(inventory, index);
     }
 
     @Override
@@ -209,12 +209,12 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
 
     @Override
     public boolean isEmpty() {
-        return !this.inventory.stream().anyMatch(s -> !s.isEmpty());
+        return !inventory.stream().anyMatch(s -> !s.isEmpty());
     }
 
     @Override
     public boolean hasCapability(Capability<?> capability, EnumFacing side) {
-        return this.getCapability(capability, side) != null;
+        return getCapability(capability, side) != null;
     }
 
     @Override
@@ -230,6 +230,6 @@ public abstract class TileEntityMutagenesisProcessor extends TileEntityUtil impl
     public abstract float getChanceMultiplier();
 
     public int getProgress() {
-        return this.progress;
+        return progress;
     }
 }

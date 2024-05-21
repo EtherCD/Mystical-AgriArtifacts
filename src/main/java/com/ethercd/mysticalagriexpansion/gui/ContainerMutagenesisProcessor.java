@@ -14,21 +14,21 @@ public class ContainerMutagenesisProcessor extends Container {
     public ContainerMutagenesisProcessor(InventoryPlayer player, TileEntityMutagenesisProcessor tileentity) {
         this.tileentity = tileentity;
 
-        this.addSlotToContainer(new Slot(tileentity, 0, 32, 42));
-        this.addSlotToContainer(new Slot(tileentity, 1, 56, 42));
-        this.addSlotToContainer(new Slot(tileentity, 2, 114, 31) {
+        addSlotToContainer(new Slot(tileentity, 0, 32, 42));
+        addSlotToContainer(new Slot(tileentity, 1, 56, 42));
+        addSlotToContainer(new Slot(tileentity, 2, 114, 31) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return false;
             }
         });
-        this.addSlotToContainer(new Slot(tileentity, 3, 102, 58) {
+        addSlotToContainer(new Slot(tileentity, 3, 102, 58) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return false;
             }
         });
-        this.addSlotToContainer(new Slot(tileentity, 4, 126, 58) {
+        addSlotToContainer(new Slot(tileentity, 4, 126, 58) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return false;
@@ -37,18 +37,18 @@ public class ContainerMutagenesisProcessor extends Container {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
-                this.addSlotToContainer(new Slot(player, j + i * 9 + 9, 8 + j * 18, 101 + i * 18));
+                addSlotToContainer(new Slot(player, j + i * 9 + 9, 8 + j * 18, 101 + i * 18));
             }
         }
 
         for (int i = 0; i < 9; i++) {
-            this.addSlotToContainer(new Slot(player, i, 8 + i * 18, 159));
+            addSlotToContainer(new Slot(player, i, 8 + i * 18, 159));
         }
     }
 
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {
-        return this.tileentity.isUsableByPlayer(playerIn);
+        return tileentity.isUsableByPlayer(playerIn);
     }
 
     @Override
@@ -63,16 +63,16 @@ public class ContainerMutagenesisProcessor extends Container {
             int containerSlots = inventorySlots.size() - player.inventory.mainInventory.size();
 
             if (index >= 2 && index <= 4) {
-                if (!this.mergeItemStack(itemstack1, index+1, 39, true)) {
+                if (!mergeItemStack(itemstack1, index+1, 39, true)) {
                     return ItemStack.EMPTY;
                 }
             }
 
             if (index < containerSlots) {
-                if (!this.mergeItemStack(itemstack1, containerSlots, inventorySlots.size(), true)) {
+                if (!mergeItemStack(itemstack1, containerSlots, inventorySlots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.mergeItemStack(itemstack1, 0, containerSlots, false)) {
+            } else if (!mergeItemStack(itemstack1, 0, containerSlots, false)) {
                 return ItemStack.EMPTY;
             }
 

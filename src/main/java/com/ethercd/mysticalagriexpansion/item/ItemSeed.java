@@ -23,21 +23,21 @@ public class ItemSeed extends ItemSeeds {
 
     public ItemSeed(String name, Block crop, int tier) {
         super(crop, Blocks.FARMLAND);
-        this.setUnlocalizedName(name);
-        this.setRegistryName(name);
+        setUnlocalizedName(name);
+        setRegistryName(name);
         this.tier = tier;
-        this.setCreativeTab(MACreativeTabs.CREATIVE_TAB);
+        setCreativeTab(MACreativeTabs.CREATIVE_TAB);
     }
 
     public int getTier() {
-        return this.tier;
+        return tier;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
         super.addInformation(stack, world, tooltip, advanced);
-        switch(this.tier){
+        switch(tier){
             case 1:
                 tooltip.add(Tooltips.TIER + Colors.YELLOW + "1");
                 break;

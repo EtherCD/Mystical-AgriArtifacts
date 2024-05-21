@@ -1,35 +1,23 @@
-<div align="center">
-    <h1>Mystical Agriexpansion</h1>
-    <img src="./src/main/resources/logo.png" alt="Logo" width=125 height=125>
-    <h2>Description</h2>
-    <h3>This is an ambitious addon for Mystical Agriculture that expands and improves the functionality of the main mod. This addon adds many new features, support for other mods, and also improves the gaming experience using Mystical Agriculture.</h3>
-    <a href="https://www.curseforge.com/minecraft/mc-mods/mystical-agriexpansion">CurseForge</a>
-    <hr>
-    <div>
-       <img src="./github/screenshot-2.png" alt="screenshot lol">
-   </div>
-</div>
+# Mystical Agriexpansion
+<img src="./src/main/resources/logo.png" alt="Logo" width=125 height=125>
 
-## Adds
-1. `More Growth Accelerators`
-* (Prudentium, Intermedium, Superium, Supremium, Insanium) Block Growth Accelerators.
-2. `More default crops`
-* Prosperity crop
-* Mechanical crop
-* Beryllium crop
-* Zirconium crop
-* Germanium crop
-* Spinel crop
-3. `Unusual crops types`
-* Radioactive, Alloy, Electronic
-4. `Integration with mods:`
-   1. Nuclear Craft `(nuclear, alloys)`
-   2. Industrial Upgrade `(nuclear, alloys, ingots)`
+Addon for Mystical Agriculture, adds new types of crops and other thinks...
 
-## Dependencies:
-`Minecraft Forge 1.12.2-14.23.5.2859+`, `Mystical Agriculture-1.7.5+`, `Cucumber-1.1.3`
+![Version 0.5](https://img.shields.io/badge/0.5-w?style=for-the-badge&label=Version&color=black)
+![Minecraft 0.5](https://img.shields.io/badge/1.12.2-w?style=for-the-badge&label=Minecraft&color=black)
+![Forge Version 14.23.5.2859](https://img.shields.io/badge/14.23.5.2859-w?style=for-the-badge&label=Forge%20Version&color=black)
 
-## Other
-[Changelog link](./CHANGELOG.md)
+<a href="https://www.curseforge.com/minecraft/mc-mods/mystical-agriexpansion"><img src="github/icons/curseforge.svg" width="50"/></a>
 
+### Screenshot
+<img src="github/screenshots/screenshot-2.png" alt="screenshot lol">
+
+### Adds
+Integrations for: Industrial Upgrade, Nuclear Craft
+
+New types of crop: radioactive, alloy
+
+New tiers of growth accelerators
+
+### License
 [License link](./LICENSE.txt)

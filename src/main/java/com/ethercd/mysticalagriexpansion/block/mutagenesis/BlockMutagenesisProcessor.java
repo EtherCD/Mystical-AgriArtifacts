@@ -62,12 +62,12 @@ public class BlockMutagenesisProcessor extends ModBlock implements ITileEntityPr
 
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+        return getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        worldIn.setBlockState(pos, this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
+        worldIn.setBlockState(pos, getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class BlockMutagenesisProcessor extends ModBlock implements ITileEntityPr
     public IBlockState getStateFromMeta(int meta) {
         EnumFacing facing = EnumFacing.getFront(meta);
         if (facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.SOUTH;
-        return this.getDefaultState().withProperty(FACING, facing);
+        return getDefaultState().withProperty(FACING, facing);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class BlockMutagenesisProcessor extends ModBlock implements ITileEntityPr
 
             for (int i = 0; i < te.getSizeInventory(); i++) {
                 ItemStack stack = te.getStackInSlot(i);
-                this.spawnAsEntity(world, pos, stack);
+                spawnAsEntity(world, pos, stack);
             }
         }
 
@@ -116,7 +116,7 @@ public class BlockMutagenesisProcessor extends ModBlock implements ITileEntityPr
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
-        switch (this.tier) {
+        switch (tier) {
             default:
             case 1:
                 tooltip.add(String.format(ModTooltips.MUTAGENESIS_PROCESSOR_CREATION, Colors.YELLOW + 40));
@@ -153,16 +153,13 @@ public class BlockMutagenesisProcessor extends ModBlock implements ITileEntityPr
 
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float side, float hitX, float hitY) {
-        if (world.isRemote) {
-            return true;
-        } else {
+        if (!world.isRemote) {
             TileEntity tile = world.getTileEntity(pos);
 
             if (tile instanceof TileEntityMutagenesisProcessor) {
                 player.openGui(MysticalAgriexpansion.instance, GuiHandler.MUTAGENESIS_PROCESSOR, world, pos.getX(), pos.getY(), pos.getZ());
             }
-
-            return true;
         }
+        return true;
     }
 }

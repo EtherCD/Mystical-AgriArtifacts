@@ -30,15 +30,15 @@ public class NuclearCrop {
     NuclearCrop(String name, int tier, int ingotMeta, int nuggetMeta, boolean enabled, ModMetaPart metaItem) {
         this.name = name;
         this.enabled = enabled;
-        this.plant = new BlockCrop(getName() + "_crop");
+        plant = new BlockCrop(getName() + "_crop");
         this.tier = tier;
-        this.crop = (ModItem) new ModItem(getName() + "_essence")
+        crop = (ModItem) new ModItem(getName() + "_essence")
                 .setCreativeTab(MACreativeTabs.CREATIVE_TAB);
-        this.seed = (ItemSeed) new ItemSeed(getName() + "_seeds", getPlant(), this.getTier())
+        seed = (ItemSeed) new ItemSeed(getName() + "_seeds", getPlant(), getTier())
                 .setCreativeTab(MACreativeTabs.CREATIVE_TAB);
         if (this.enabled) {
-            this.plant.setCrop(crop);
-            this.plant.setSeed(seed);
+            plant.setCrop(crop);
+            plant.setSeed(seed);
             NuclearCrops.NUCLEAR_CROP_LIST.add(this);
         }
         this.ingotMeta = ingotMeta;
@@ -47,50 +47,50 @@ public class NuclearCrop {
     }
 
     public ItemSeed getSeed() {
-        return this.seed;
+        return seed;
     }
 
     public ModItem getCrop() {
-        return this.crop;
+        return crop;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public int getTier() {
-        return this.tier;
+        return tier;
     }
 
     public BlockCrop getPlant() {
-        return this.plant;
+        return plant;
     }
 
     public boolean isEnabled() {
-        return this.enabled;
+        return enabled;
     }
 
     public void init() {
-        if (this.enabled) {
-            ModItems.add(this.seed, this.getName() + "_seeds");
-            ModItems.add(this.crop, this.getName() + "_essence");
-            ModBlocks.add(this.plant, this.getName() + "_crop");
+        if (enabled) {
+            ModItems.add(seed, getName() + "_seeds");
+            ModItems.add(crop, getName() + "_essence");
+            ModBlocks.add(plant, getName() + "_crop");
         }
     }
 
     public void initRecipe() {
-        if (this.enabled && this.metaItem.isLoaded()) {
+        if (enabled && metaItem.isLoaded()) {
             Item metaItem = this.metaItem.getItem();
 
-            ItemStack materialIn = new ItemStack(metaItem, 1, this.ingotMeta);
-            ItemStack materialOut = new ItemStack(metaItem, 1, this.nuggetMeta);
+            ItemStack materialIn = new ItemStack(metaItem, 1, ingotMeta);
+            ItemStack materialOut = new ItemStack(metaItem, 1, nuggetMeta);
 
             RecipeHelper.addShapedRecipe(materialOut,
                     "EEE",
                     "EEE",
                     "EEE",
                     'E',
-                    new ItemStack(this.crop,
+                    new ItemStack(crop,
                             1,
                             0));
 
@@ -121,7 +121,7 @@ public class NuclearCrop {
                     break;
             }
 
-            RecipeHelper.addShapedRecipe(new ItemStack(this.seed, 1, 0),
+            RecipeHelper.addShapedRecipe(new ItemStack(seed, 1, 0),
                     "PEP",
                     "ECE",
                     "PEP",
@@ -131,7 +131,7 @@ public class NuclearCrop {
                     tierInferiumEssence,
                     'C',
                     tierCraftingSeeds);
-            ReprocessorManager.addRecipe(new ItemStack(this.crop, 2, 0), new ItemStack(this.seed, 1, 0));
+            ReprocessorManager.addRecipe(new ItemStack(crop, 2, 0), new ItemStack(seed, 1, 0));
         }
     }
 }

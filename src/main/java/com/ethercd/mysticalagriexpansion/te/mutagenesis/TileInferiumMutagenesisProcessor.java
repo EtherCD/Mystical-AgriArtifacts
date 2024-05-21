@@ -1,6 +1,7 @@
 package com.ethercd.mysticalagriexpansion.te.mutagenesis;
 
 import com.blakebr0.cucumber.util.VanillaPacketDispatcher;
+import com.ethercd.mysticalagriexpansion.config.ModConfig;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -9,12 +10,12 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 public class TileInferiumMutagenesisProcessor extends TileEntityMutagenesisProcessor{
     @Override
     public int getOperationTime() {
-        return 1000;
+        return ModConfig.mutagenesisProcessorTier1OperationTime;
     }
 
     @Override
     public float getChanceMultiplier() {
-        return 1;
+        return ModConfig.mutagenesisProcessorTier1ChanceMultiplier;
     }
 
     @Override
@@ -25,16 +26,16 @@ public class TileInferiumMutagenesisProcessor extends TileEntityMutagenesisProce
 
     @Override
     public SPacketUpdateTileEntity getUpdatePacket() {
-        return new SPacketUpdateTileEntity(this.getPos(), -1, this.getUpdateTag());
+        return new SPacketUpdateTileEntity(getPos(), -1, getUpdateTag());
     }
 
     @Override
     public void onDataPacket(NetworkManager manager, SPacketUpdateTileEntity packet) {
-        this.readFromNBT(packet.getNbtCompound());
+        readFromNBT(packet.getNbtCompound());
     }
 
     @Override
     public final NBTTagCompound getUpdateTag() {
-        return this.writeToNBT(new NBTTagCompound());
+        return writeToNBT(new NBTTagCompound());
     }
 }

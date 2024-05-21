@@ -24,7 +24,7 @@ public class ModItems {
 
         ItemCrafting.register();
 
-        if (ModConfig.integrationMAg && ModChecker.INSANIUM) {
+        if (ModConfig.integrationMysticalAgradditions && ModChecker.INSANIUM) {
             itemInstaiumWateringCan.register();
         }
 

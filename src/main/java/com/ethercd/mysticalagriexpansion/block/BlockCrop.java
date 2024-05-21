@@ -26,21 +26,21 @@ public class BlockCrop extends BlockCrops {
 
     public BlockCrop(String name){
         super();
-        this.setUnlocalizedName(name);
-        this.setHardness(0.0F);
-        this.setSoundType(SoundType.PLANT);
-        this.disableStats();
+        setUnlocalizedName(name);
+        setHardness(0.0F);
+        setSoundType(SoundType.PLANT);
+        disableStats();
     }
 
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
-        this.checkAndDropBlock(world, pos, state);
-        int i = this.getAge(state);
+        checkAndDropBlock(world, pos, state);
+        int i = getAge(state);
         if(world.getLightFromNeighbors(pos.up()) >= 9){
-            if(i < this.getMaxAge()){
+            if(i < getMaxAge()){
                 float f = getGrowthChance(this, world, pos);
                 if(rand.nextInt((int)(35.0F / f) + 1) == 0) {
-                    world.setBlockState(pos, this.withAge(i + 1), 2);
+                    world.setBlockState(pos, withAge(i + 1), 2);
                 }
             }
         }
@@ -71,7 +71,7 @@ public class BlockCrop extends BlockCrops {
 
     @Override
     public Item getSeed(){
-        return this.seed;
+        return seed;
     }
 
     public BlockCrop setCrop(Item crop){
@@ -81,7 +81,7 @@ public class BlockCrop extends BlockCrops {
 
     @Override
     public Item getCrop() {
-        return this.crop;
+        return crop;
     }
 
     @Override
@@ -111,9 +111,9 @@ public class BlockCrop extends BlockCrops {
                 essence = 1;
         }
 
-        drops.add(new ItemStack(this.getSeed(), 1, 0));
+        drops.add(new ItemStack(getSeed(), 1, 0));
         if (essence > 0) {
-            drops.add(new ItemStack(this.getCrop(), essence, 0));
+            drops.add(new ItemStack(getCrop(), essence, 0));
         }
         if (fertilizer > 0) {
             drops.add(ModParts.itemFertilizedEssence);

@@ -9,16 +9,16 @@ import net.minecraft.block.material.Material;
 public class ModBlock extends Block {
     public ModBlock(String name, Material material, SoundType sound, float hardness, float resistance) {
         super(material);
-        this.setCreativeTab(MACreativeTabs.CREATIVE_TAB);
-        this.setSoundType(sound);
-        this.setRegistryName(name);
-        this.setUnlocalizedName(name);
-        this.setHardness(hardness);
-        this.setResistance(resistance);
+        setCreativeTab(MACreativeTabs.CREATIVE_TAB);
+        setSoundType(sound);
+        setRegistryName(name);
+        setUnlocalizedName(name);
+        setHardness(hardness);
+        setResistance(resistance);
     }
 
     public ModBlock(String name, Material material, SoundType sound, float hardness, float resistance, String tool, int level) {
         this(name, material, sound, hardness, resistance);
-        this.setHarvestLevel(tool, level);
+        setHarvestLevel(tool, level);
     }
 }

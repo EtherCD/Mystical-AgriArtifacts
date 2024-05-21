@@ -52,9 +52,6 @@ public class MutagenesisRecipesManager {
      * @return Result or ItemStack.EMPTY
      */
     public static MutagenesisResult getResult(ItemStack input1, ItemStack input2) {
-        input1 = input1.copy(); input1.copy();
-        input2 = input2.copy(); input2.copy();
-
         for (Map.Entry<ItemStack, Map<ItemStack, MutagenesisResult>> entry : recipesList.columnMap().entrySet()) {
             if (input1.isItemEqual(entry.getKey()))
                 for (Map.Entry<ItemStack, MutagenesisResult> ent : entry.getValue().entrySet())

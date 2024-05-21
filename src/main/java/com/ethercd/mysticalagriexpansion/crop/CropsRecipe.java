@@ -60,23 +60,23 @@ public enum CropsRecipe {
     }
 
     public void initRecipe() {
-        if (this.crop.isEnabled() && this.output != null && this.madeOf != null) {
+        if (crop.isEnabled() && output != null && madeOf != null) {
             ItemStack output;
             ItemStack madeOf;
-            if (this.meta >= 0) {
-                output = new ItemStack(this.made.getItem(), 1, this.meta);
-                madeOf = new ItemStack(this.made.getItem(), 1, this.meta);
+            if (meta >= 0) {
+                output = new ItemStack(made.getItem(), 1, meta);
+                madeOf = new ItemStack(made.getItem(), 1, meta);
             } else {
                 output = this.output;
                 madeOf = this.madeOf;
             }
 
             RecipeHelper.addShapedRecipe(output,
-                    this.shape.getShape()[0],
-                    this.shape.getShape()[1],
-                    this.shape.getShape()[2],
+                    shape.getShape()[0],
+                    shape.getShape()[1],
+                    shape.getShape()[2],
                     'E',
-                    new ItemStack(this.crop.getCrop(),
+                    new ItemStack(crop.getCrop(),
                             1,
                             0));
 
@@ -107,7 +107,7 @@ public enum CropsRecipe {
                     break;
             }
 
-            RecipeHelper.addShapedRecipe(new ItemStack(this.crop.getSeed(), 1, 0),
+            RecipeHelper.addShapedRecipe(new ItemStack(crop.getSeed(), 1, 0),
                     "PEP",
                     "ECE",
                     "PEP",
